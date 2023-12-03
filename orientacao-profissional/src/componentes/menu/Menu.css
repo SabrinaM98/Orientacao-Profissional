@@ -1,0 +1,9 @@
+.containerMenu{
+    display: flex;
+    padding: 16px;
+    background-color: #fff;
+    height: 52px;
+    gap: 8px;
+    align-items: center;
+    color: black;
+} 
