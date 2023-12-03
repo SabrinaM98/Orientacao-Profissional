@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  
+  body, button, input, select, textarea {
+    font-family: Georgia;
+    font-size: 16px;
+    font-style: normal;
+    line-height: normal;
+    font-weight: 400;
+  }
+  
+  ul, ol {
+    list-style: none;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #FFFFFF;
+  }
+  
+  img {
+    border: none;
+  }
+  
+  html, body {
+    width: 100%;
+    height: 100%;
+  }
+  
+  div, section, article, header, footer, nav {
+    display: block;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    background-color: dimgray;
+    color: #FFFFFF;
+    user-select: none; /* Evitar seleção de texto por padrão */
+  }
+  
+  /* SCROLL /
+  / Firefox */
+  *{
+    scrollbar-width: thin;
+    scrollbar-color: #293665 #e0e0e0;
+    }
+    
+    /* Chrome, Edge, and Safari */
+    *::-webkit-scrollbar {
+      width: 9px;
+    }
+    
+    *::-webkit-scrollbar-track {
+      background: #e0e0e0;
+    }
+    
+    *::-webkit-scrollbar-thumb {
+      background-color: #293665;
+      border-radius: 10px;
+      border: 1px solid #e0e0e0;
+    }
+
+    .layout{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
