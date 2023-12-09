@@ -6,4 +6,16 @@
     gap: 8px;
     align-items: center;
     color: black;
-} 
+}
+.navMenu {
+    position: absolute;
+    top: 0;
+    right:0;
+    display:flex;
+    justify-content: space-between;
+    padding:16px;
+    margin-right:16px;
+}
+.navMenu a {
+    margin-right: 16px;
+}

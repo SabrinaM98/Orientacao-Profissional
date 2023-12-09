@@ -4,9 +4,17 @@ import logo from '../../../public/vite.svg'
 
 const Menu = () => {
   return (
-    <div className='containerMenu'>
+    <div>
+      <div className='containerMenu'>
         <img src={logo}/>
-        <span>Nome do site</span>
+        <span>Orientação Profissional</span>
+        <nav className='navMenu'>
+            <a href="#inicio">Home</a>
+            <a href="#Objetivos">Buscar</a>
+            <a href="#comoSomos">Desenvolvimento</a>
+            <a href="#duvidas">Login</a>          
+        </nav>
+      </div>
     </div>
   )
 }
