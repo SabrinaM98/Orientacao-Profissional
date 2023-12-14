@@ -5,7 +5,7 @@ import Admin from '../admin/Admin';
 import axios from "axios";
 
 function Login  ()  {
-  //Variavel de autenticaão iniciada como false para cais na tela de login
+  //Variavel de autenticaão iniciada como false para cair na tela de login
   const [isAuthenticated, setAuthenticated] = useState(false);
 
   // Aqui pegamos as informações dos campos de login
@@ -13,7 +13,6 @@ function Login  ()  {
   const [senha, setSenha] = useState("");
 
   const handleNomeChange = (e) => {
-    debugger;
     setNome(e.target.value);
   };
 
@@ -34,10 +33,12 @@ function Login  ()  {
       );
 
       if(usuarioExiste){
+        alert("Usuário autenticado!")
         console.log("Usuário autenticado!")
         //Caso o usuario exista setamos a variaveu como true para liberar o acesso ao componente de Admin
         setAuthenticated(true);
       }else{
+        alert("Usuário não autenticado!")
         console.log("Usuário não autenticado!")
       }
 
@@ -50,7 +51,7 @@ function Login  ()  {
   return !isAuthenticated ? (
       <div className='flex-colum'>
       <div className='bodyAdmin'>
-        <input placeholder='Email' value={nome} onChange={handleNomeChange} className='caixa-de-texto'></input>
+        <input placeholder='Nome' value={nome} onChange={handleNomeChange} className='caixa-de-texto'></input>
         <input placeholder='Senha' value={senha} onChange={handleSenhaChange} className='caixa-de-texto'></input>
 
         <button onClick={handleLogin}>Login</button>

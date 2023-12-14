@@ -31,3 +31,7 @@ app.get('/api/usuarios', (req, res) => {
   app.listen(port, () => {
     console.log(`Servidor API rodando na porta ${port}`);
   });
+
+  // # 1 - Para rodar o servidor: cd back (para navegar ate a pasta back do projeto)
+  // # 2 - Para rodar o servidor basta digitar o comando abaix:
+  // node server.js
