@@ -7,7 +7,8 @@ import axios from "axios";
 function Login  ()  {
   //Variavel de autenticaão iniciada como false para cair na tela de login
   const [isAuthenticated, setAuthenticated] = useState(false);
-
+  const [isTeste, setTeste] = useState(false);
+  
   // Aqui pegamos as informações dos campos de login
   const [nome, setNome] = useState("");
   const [senha, setSenha] = useState("");
@@ -19,6 +20,7 @@ function Login  ()  {
   const handleSenhaChange = (e) => {
     setSenha(e.target.value);
   };
+
 
   // Funão para validar o login
   const handleLogin = async () => {
@@ -48,16 +50,67 @@ function Login  ()  {
     }    
   };
 
-  return !isAuthenticated ? (
-      <div className='flex-colum'>
-      <div className='bodyAdmin'>
-        <input placeholder='Nome' value={nome} onChange={handleNomeChange} className='caixa-de-texto'></input>
-        <input placeholder='Senha' value={senha} onChange={handleSenhaChange} className='caixa-de-texto'></input>
+  // let  signinBtn = document.querySelector('.signinBtn');
+  // let  signupBtn = document.querySelector('.signupBtn');
+  // let  body = document.querySelector('bodyLogin');
 
-        <button onClick={handleLogin}>Login</button>
-        <button className='botose'>Cadastrar</button>
-      </div>
+  let ativarBtn = function (){
+    setTeste(false);
+  }
+  let registrarBtn = function (){
+    
+    setTeste(true);
+    console.log(isTeste);
+  }
+
+  return !isAuthenticated ? (
+    //   <div className='flex-colum'>
+    //   <div className='bodyAdmin'>
+    //     <input placeholder='Nome' value={nome} onChange={handleNomeChange} className='caixa-de-texto'></input>
+    //     <input placeholder='Senha' value={senha} onChange={handleSenhaChange} className='caixa-de-texto'></input>
+
+    //     <button onClick={handleLogin}>Login</button>
+    //     <button className='botose'>Cadastrar</button>
+    //   </div>
+    // </div>
+    <div className='loginPage'>
+      <div className={`bodyLogin ${isTeste ? 'slide' : ''}`}>
+        <div className='container'>
+          <div className='box signin'>
+            <h2>Já possui uma conta?</h2>
+            <button onClick={ativarBtn} className= {`signinBtn ${isTeste ? '' : 'slide'}`}>Entrar</button>
+          </div>
+          <div className='box signup'>
+            <h2>Não possui uma conta?</h2>
+            <button onClick={registrarBtn} className='signupBtn'>Registrar-se</button>
+          </div>
+          <div className='formBx'>
+            <div className='form signinform'>
+              <form>
+                <h3>Entrar</h3>
+                <input type="text" placeholder="Usuário"/>
+                <input type="password" placeholder="Senha"/>
+                <input type="submit" value="Login"/>
+                <a href="#" className='forgot'>Esqueci a senha</a>
+              </form>
+            </div>
+
+            <div className='form signupform'>
+              <form>
+                <h3>Registrar-se</h3>
+                <input type="text" placeholder="Usuário"/>
+                <input type="text" placeholder="Endereço de Email"/>
+                <input type="password" placeholder="Senha"/>
+                <input type="password" placeholder="Confirmar a Senha"/>
+                <input type="submit" value="Registrar"/>
+              </form>
+            </div>
+          </div>
+        </div>
+             
+        </div>
     </div>
+      
         ) : (
           <Admin />
           // <Navigate to="/admin" replace={true} />
