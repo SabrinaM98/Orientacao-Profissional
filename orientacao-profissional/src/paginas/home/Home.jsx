@@ -1,7 +1,8 @@
 import React from 'react'
 import './Home.css'
 import Menu from '../../componentes/menu/Menu'
-import Header from '../../componentes/header/Header'
+import Header from '../../componentes/Header/Header'
+import Carrossel from '../../componentes/carrossel/Carrossel'
 
 const Home = () => {
   return (
@@ -33,8 +34,7 @@ const Home = () => {
                 <button>Ir p/ página</button>
             </div>
         </div>
-    
-
+    <Carrossel/>
     </div>
   )
 }
