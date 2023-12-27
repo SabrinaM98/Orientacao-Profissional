@@ -22,28 +22,28 @@ const Profissoes = () => {
     {
       id: 1,
       nome_profissao: "Engenharia Elétrica",
-      titulo: "Soft_Skills",
+      titulo: "Soft",
       subtitulo: "basic skills",
       texto: "ser boa pinta; não ser psicopata"
     },
     {
       id: 2,
       nome_profissao: "Engenharia Elétrica",
-      titulo: "Soft_Skills",
+      titulo: "Soft",
       subtitulo: "resolucao de problemas",
-      texto: "ser bom em resolver problemas"
+      texto: "ser bom em resolver problemas "
     },
     {
       id: 3,
       nome_profissao: "Engenharia Elétrica",
-      titulo: "Hard_Skills",
+      titulo: "Hard",
       subtitulo: "basic skills",
       texto: "excel;word"
     },
     {
       id: 4,
       nome_profissao: "Engenharia Elétrica",
-      titulo: "Hard_Skills",
+      titulo: "Hard",
       subtitulo: "resolucao de problemas",
       texto: "resolver problemas com excel"
     }
