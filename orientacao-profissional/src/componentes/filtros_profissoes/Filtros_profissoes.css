@@ -1,0 +1,111 @@
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+.row {
+
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    margin-right: 20px;
+    /* margin-left: calc(-.5 * var(--bs-gutter-x)); */
+}
+
+.col-sm-6 {
+    flex: 0 0 auto;
+    width: 50%;
+}
+
+.reportgroup {
+    border: solid 5px #D9D9D9;
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+    padding-left: 2em;
+}
+
+.reportgroup-occinfo {
+    border-color: #9EC1CC !important;
+}
+
+.rm-group-workchar, .reportgroup-workchar {
+    border-color: #D3ACAB !important;
+}
+
+.mb-5 {
+    margin-bottom: 3rem!important;
+}
+
+.m-0 {
+    margin: 0!important;
+}
+
+.pb-1 {
+    padding-bottom: 0.25rem!important;
+}
+
+.pb-2 {
+    padding-bottom: 0.5rem!important;
+}
+
+.rm-group-workchar .rm-group-header h6, .reportgroup-workchar h2.r-group-header {
+    color: #93312F;
+}
+
+.fs-4 {
+    font-size: calc(1.275rem + .3vw)!important;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: OpenSansCond;
+    color: #004488;
+    font-weight: bold;
+}
+
+.h5, h5 {
+    font-size: 1.25rem;
+}
+
+.form-check {
+    display: block;
+    min-height: 1.5rem;
+    padding-left: 1.5em;
+    margin-bottom: 0.125rem;
+}
+
+.form-switch {
+    padding-left: 2.5em;
+}
+
+.form-switch .form-check-input {
+    width: 2em;
+    margin-left: -2.5em;
+    /* background-image: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8' %3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e); */
+    background-position: left center;
+    border-radius: 2em;
+    transition: background-position .15s ease-in-out;
+}
+
+.form-check .form-check-input {
+    float: left;
+    margin-left: -1.5em;
+}
+
+.form-check-input {
+    width: 1em;
+    height: 1em;
+    margin-top: 0.25em;
+    vertical-align: top;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border: 1px solid rgba(0,0,0,.25);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-print-color-adjust: exact;
+    /* color-adjust: exact; */
+    print-color-adjust: exact;
+}
+
