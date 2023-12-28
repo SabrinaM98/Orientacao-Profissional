@@ -1,0 +1,63 @@
+.section_processes{
+    display: flex;
+    padding: 80px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+    align-self: stretch;
+    background: #D0D0D0;
+}
+
+.group_cards_pro{
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    width: 100%;
+}
+
+.card_pro_home{
+    display: flex;
+    height: 274px;
+    padding: 8px 32px;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    border-radius: 10px;
+    background: var(--Basic-02, #FFF);
+    box-shadow: 0px 2px 16px 0px rgba(0, 0, 0, 0.10);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+.card_pro_home:hover{
+    transform: scale(1.05);
+    background-color: rgb(250, 4, 250);
+}
+
+.group_cards_pro > button{
+    height: 48px;
+    width: 88px;
+    border-radius: 10px;
+    border: 0 solid;
+}
+
+.img_pro{
+    height: 130px;
+}
+
+.infors{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title{
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.title_pro{
+    font-weight: 700;
+}

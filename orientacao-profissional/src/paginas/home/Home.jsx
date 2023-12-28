@@ -9,7 +9,7 @@ const Home = () => {
     <div className='flex'>
         <Menu/>
         <Header/>
-        <div className='container'>
+        <div className='container_home'>
             <div className='card'>
                 <span>Explorar Carreiras</span>
                 <p>Gostaria informações detalhadas sobre as profissões que existem no mercado?

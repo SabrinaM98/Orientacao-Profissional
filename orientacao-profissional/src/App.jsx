@@ -6,6 +6,7 @@ import './App.css'
 import Home from './paginas/home/Home'
 import Profissoes from "./paginas/profissoes/Profissoes";
 import Login from "./paginas/login/Login";
+import './index.css'
 
 function App() {
   return (

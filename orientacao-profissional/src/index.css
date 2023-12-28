@@ -5,10 +5,10 @@
   }
 
   body {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     background-color: dimgray;
-    color: #FFFFFF;
+    color: #FFFFFF; */
     user-select: none; /* Evitar seleção de texto por padrão */
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 16px;
