@@ -3,13 +3,23 @@ import './Home.css'
 import Menu from '../../componentes/menu/Menu'
 import Header from '../../componentes/Header/Header'
 import Carrossel from '../../componentes/carrossel/Carrossel'
+import Hero_section from '../../componentes/hero_section_home/Hero_section'
 
 const Home = () => {
   return (
     <div className='flex'>
         <Menu/>
-        <Header/>
-        <div className='container_home'>
+        {/* <Header/> */}
+        <Hero_section />
+        <Carrossel/>
+    </div>
+  )
+}
+
+export default Home
+
+
+        {/* <div className='container_home'>
             <div className='card'>
                 <span>Explorar Carreiras</span>
                 <p>Gostaria informações detalhadas sobre as profissões que existem no mercado?
@@ -33,10 +43,4 @@ const Home = () => {
                 </p>
                 <button>Ir p/ página</button>
             </div>
-        </div>
-    <Carrossel/>
-    </div>
-  )
-}
-
-export default Home
+        </div> */}
