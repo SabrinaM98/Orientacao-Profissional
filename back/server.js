@@ -28,6 +28,26 @@ app.get('/api/usuarios', (req, res) => {
     });
   });
 
+  // Rota para o campo de pesquisa na Hero_section. Aqui lista as porfissoes cadastradas no banco
+  app.get('/api/profissoes', (req, res) => {
+
+    const { search } = req.query;
+    const query = `SELECT * FROM tb_profissoes WHERE nome_profissao LIKE '%${search}%'`;
+  
+    db.all(query, (err, data) => {
+      if (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Erro ao buscar dados.' });
+      } else {
+        if (data.length === 0) {
+          res.status(404).json({ message: 'Nenhum dado encontrado.' });
+        } else {
+          res.json(data);
+        }
+      }
+    });
+  });
+
   app.listen(port, () => {
     console.log(`Servidor API rodando na porta ${port}`);
   });

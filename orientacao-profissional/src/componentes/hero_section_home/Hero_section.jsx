@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react';
 import './Hero_section.css'
 import img_hero from './img_hero.png'
+import Search from '../filtro_pesquisa/Search';
 
 const Hero_section = () => {
+    const [search, setSearch] = useState('');
+    const [results, setResults] = useState([]);
+
   return (
     <div className='hero_section'>
         <img src={img_hero} className='img_hero'/>
@@ -12,12 +16,29 @@ const Hero_section = () => {
                 <span>texto copy de descrição</span>
             </div>
             <div>
-                <input className='input_hero' placeholder='Digite suas paixões, interesses, habilidades ou profissão que deseja encontrar'></input>
+                <Search search={search} setSearch={setSearch} setResults={setResults} />
+                {search.length > 0 && (
+                    <div className='resultado_pesquisa'>
+                    {results.length > 0 ? (
+                        results.map((result) => (
+                        <span key={result.id}>{result.nome_profissao}</span>
+                        ))
+                    ) : (
+                        <span>Nenhum resultado encontrado.</span>
+                    )}
+                    </div>
+                )}
+
+                {/* <input className='input_hero' placeholder='Digite suas paixões, interesses, habilidades ou profissão que deseja encontrar'></input> */}
+                {search.length == 0 ? (
                 <div className='opcoes_busca'>
-                    <a>Opção de busca 1</a>
-                    <a>Opção de busca 2</a>
-                    <a>Opção de busca 3</a>
+                    <a>Medicina</a>
+                    <a>Engenharia</a>
+                    <a>Tecnologia da Informação (TI)</a>
                 </div>
+                ):(
+                    <span></span>
+                )}
             </div>
         </div>
     </div>

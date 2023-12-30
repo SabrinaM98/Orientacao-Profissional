@@ -1,7 +1,6 @@
 import React from 'react'
 import './Profissoes.css'
 import Menu from '../../componentes/menu/Menu'
-import Header from '../../componentes/header/Header'
 import Card_profissoes from '../../componentes/Card_profissoes/Card_profissoes'
 import { Filtros_profissoes } from '../../componentes/filtros_profissoes/Filtros_profissoes'
 

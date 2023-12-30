@@ -9,10 +9,10 @@ const Menu = () => {
         <img src={logo}/>
         <span>Orientação Profissional</span>
         <nav className='navMenu'>
-            <a href="#inicio">Home</a>
-            <a href="#Objetivos">Buscar</a>
-            <a href="#comoSomos">Desenvolvimento</a>
-            <a href="#duvidas">Login</a>          
+            <a href="/">Home</a>
+            {/* <a href="#Objetivos">Buscar</a>
+            <a href="#comoSomos">Desenvolvimento</a> */}
+            {/* <a href="#duvidas">Login</a>           */}
         </nav>
       </div>
     </div>
