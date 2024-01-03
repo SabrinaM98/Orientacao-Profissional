@@ -1,68 +1,60 @@
-import React, { useState , useRef} from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Card from './Card'
-import './Carrossel.css'
-import img_medico from '../../assets/imagens_profissoes/ilustracao.jpg'
+import Card from './Card';
+import './Carrossel.css';
+import img_medico from '../../assets/imagens_profissoes/ilustracao.jpg';
 import axios from 'axios';
 
 const Carrossel = () => {
-  const cardData = [];
+  const [cardData, setCardData] = useState([]);
+  const carrosselRef = useRef(null);
 
   const fetchData = async () => {
     try {
       const response = await axios.get(`http://localhost:3001/api/cards_profissoes`);
-      
-      const cardData = response.data;
-
-      // console.log("nosso array aqui:", cardData)
-
+      setCardData(response.data);
     } catch (error) {
       console.error('Erro ao buscar dados:', error);
     }
   };
-  fetchData();
 
-    
-    
-      // const itemsPerPage = 20;
-      // const [startIndex, setStartIndex] = useState(0);
-      const carrosselRef = useRef(null);
-      const voltar = () => {
-        if(carrosselRef.current){
-          carrosselRef.current.scrollLeft -= 300;
-        }
-      };
-    
-      const proximo = () => {
-        debugger;
-        if(carrosselRef.current){
-          carrosselRef.current.scrollLeft += 300;
-        }
-      };
-    
-      return (
-        <div>
-          <div id='processes' className='section_processes'>
-            <span className='title'>Sugestões de Carreiras</span>
-            <div className='carrossel'>
-              <button onClick={voltar}>&lt;</button>
-                <div ref={carrosselRef} className='group_cards_pro'>
+  useEffect(() => {
+    fetchData();
+  }, []); // O segundo argumento [] garante que o useEffect só é executado uma vez 
 
-                  {cardData.map((data) => (
-                    <React.Fragment key={data.id}>
-                      <Card {...data} />
-                    </React.Fragment>
-                  ))}
-                  
-                </div>
-              <button onClick={proximo}>&gt;</button>
-            </div>
+  const voltar = () => {
+    if (carrosselRef.current) {
+      carrosselRef.current.scrollLeft -= 300;
+    }
+  };
+
+  const proximo = () => {
+    if (carrosselRef.current) {
+      carrosselRef.current.scrollLeft += 300;
+    }
+  };
+
+  return (
+    <div>
+      <div id='processes' className='section_processes'>
+        <span className='title'>Sugestões de Carreiras</span>
+        <div className='carrossel'>
+          <button onClick={voltar}>&lt;</button>
+          <div ref={carrosselRef} className='group_cards_pro'>
+            {cardData.map((data) => (
+              <React.Fragment key={data.id}>
+                <Card {...data} />
+              </React.Fragment>
+            ))}
           </div>
+          <button onClick={proximo}>&gt;</button>
         </div>
-      );
-}
+      </div>
+    </div>
+  );
+};
 
-export default Carrossel
+export default Carrossel;
 
 
 // const cardData = [
