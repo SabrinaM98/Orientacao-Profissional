@@ -3,6 +3,7 @@ import './Profissoes.css'
 import Menu from '../../componentes/menu/Menu'
 import Card_profissoes from '../../componentes/Card_profissoes/Card_profissoes'
 import { Filtros_profissoes } from '../../componentes/filtros_profissoes/Filtros_profissoes'
+import Footer from '../../componentes/footer/Footer'
 
 const Profissoes = () => {
   const dadosHeader = [
@@ -61,29 +62,52 @@ const Profissoes = () => {
   return (
     <div className='flex'>
       <Menu/>
-      <div className='header'>
-      {dadosHeader[0].nome_profissao}
-      </div>
-      <section style={{marginTop: 20}}>
-        {dadosSecao1[0].titulo}
-      </section>
-      <div style={{ borderTop: "1px solid rgb(128, 128, 128) ", marginLeft: 20, marginRight: 20 , marginTop: 20}}></div>
-      <section>
+      <div className='container_profissao'>
+        <div className='container_conteudo_profissoes'>
+          <span className='titulo_profissao'>{dadosHeader[0].nome_profissao}</span>
+          <span>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis lacus ut urna viverra faucibus. Nulla pellentesque nunc lobortis suscipit vestibulum. Cras elementum libero eu suscipit tempor. Nullam id justo nibh. Vivamus neque nisl, tempor in justo at, venenatis sollicitudin purus. Nam at pellentesque quam. Sed ipsum ligula, aliquam id eros facilisis, laoreet maximus orci.
+              <br />
+              <br />
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis lacus ut urna viverra faucibus. Nulla pellentesque nunc lobortis suscipit vestibulum. Cras elementum libero eu suscipit tempor. Nullam id justo nibh. Vivamus neque nisl, tempor in justo at, venenatis sollicitudin purus. Nam at pellentesque quam. Sed ipsum ligula, aliquam id eros facilisis, laoreet maximus orci.
+          </span>
+        </div>
+        <div className='container_conteudo_profissoes'>
+          <span className='titulo_profissao'>Visão Geral da Profissão</span>
+          <div>
+            <span className='sub_titulo_visao'>Faltando:</span>
+            <ul>
+              <li>Como é o ambiente de trabalho</li>
+              <li>Rotina do trabalho</li>
+              <li>Retorno/Plano de carreira</li>
+              <li>Atividades do dia a dia</li>
+              <li>Depoimentos de pessoas inseridas no mercado</li>
+            </ul>
+          </div>
+        </div>
+        <div className='container_conhecimentos'>
+          <span>Conhecimentos Necessários</span>
+          <ul>
+              <li>Conhecimento A</li>
+              <li>Conhecimento B</li>
+              <li>Conhecimento C</li>
+            </ul>          
+        </div>
+        
         <Card_profissoes dados = {aux}/>
-        {/* <div className='container'>
-          {res.map((value, index) =>(
-            <React.Fragment key = {index}>
-              <Card_profissoes {...value}/>
-            </React.Fragment>
-          ))}
-        </div> */}
-      </section>
-      <div style={{ borderTop: "1px solid rgb(128, 128, 128) ", marginLeft: 20, marginRight: 20 , marginTop: 20}}></div>
-      <section>
+
+        {/* se for usar o filtro, colocar aqui; */}
+
+      </div>
+      <Footer />
+
+      {/* <div style={{ borderTop: "1px solid rgb(128, 128, 128) ", marginLeft: 20, marginRight: 20 , marginTop: 20}}></div>
+       */}
+      {/* <section>
         <React.Fragment>
           <Filtros_profissoes/>
         </React.Fragment>
-      </section>
+      </section> */}
     </div>
   )
 }

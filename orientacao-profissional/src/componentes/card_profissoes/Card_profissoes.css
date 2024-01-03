@@ -1,38 +1,35 @@
 .card_profissoes{
-    width: 100%;
-    height: 450px;
-    border: solid 1px;
-    border-color: rgb(236, 236, 236);
     display: flex;
-    /* flex-direction: column; */
-    gap: 16px;
-    padding: 16px;
-    align-items: center;
-    justify-content: space-evenly;
-    color: black;
-    background-color: rgb(243, 243, 243);
-    border-radius: 10px;
-    box-shadow: 0px 2px 16px 0px rgba(0, 0, 0, 0.10);
-    backdrop-filter: blur(10px);
-}
-
-.card_profissoes > span{
-    font-weight: 700;
+    gap: 8px;
+    width: 100%;
 }
 
 .card_conteudo_pro{
     display: flex;
     flex-direction: column;
     gap: 8px;
-    width: 300px;
+    width: 30%;
+    min-width: 300px;
     padding: 16px;
     border-radius: 10px;
     box-shadow: 0px 2px 16px 0px rgba(0, 0, 0, 0.10);
     background-color: rgb(255, 255, 255);
 }
 
-.sub_titulo{
+@media (max-width: 768px) {
+    .card_profissoes{
+        flex-wrap: wrap;
+    }
+    .card_conteudo_pro{
+        width: 100%;
+    }
+}
+/* .sub_titulo{
     font-size: 18px;
     font-weight: 700;
     color: rgb(0, 0, 0);
 }
+
+.card_profissoes > span{
+    font-weight: 700;
+} */
