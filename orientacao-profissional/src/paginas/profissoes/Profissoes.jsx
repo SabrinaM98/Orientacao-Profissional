@@ -6,13 +6,21 @@ import Card_profissoes from '../../componentes/Card_profissoes/Card_profissoes'
 import Footer from '../../componentes/footer/Footer'
 import axios  from 'axios';
 
+import { useLocation } from 'react-router-dom';
+
 const Profissoes = () => {
+  
+  const location = useLocation();
+  const idURL = new URLSearchParams(location.search).get('id');
+
+  console.log("location:", location);
+
 
   const [ dadosHeader, setDadosHeader] = useState([]);
 
   const fetchData = async () => {
     try {
-      let id = 1;
+      let id = idURL;
       const response = await axios.get(`http://localhost:3001/api/infos_profissao?id=${id}`);
       debugger
       setDadosHeader(response.data)
@@ -77,6 +85,7 @@ const Profissoes = () => {
   return (
     <div className='flex'>
       <Menu/>
+      {/* <p>ID recebido: {id}</p> */}
       <div className='container_profissao'>
         <div className='container_conteudo_profissoes'>
           <span className='titulo_profissao'>{dadosSecao2[0].nome_profissao}</span>

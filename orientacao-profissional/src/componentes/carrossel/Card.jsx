@@ -24,7 +24,8 @@ const Card = ({ id, nome_profissao, descricao_curta, imagem }) => {
   };
 
     return (
-      <Link to="/profissoes" style={{ textDecoration: 'none' , color: 'black'}}>
+      // <Link to={{ pathname: "/profissoes", search: "teste2" , hash: 'teste', state: [{id: 1}] }} style={{ textDecoration: 'none' , color: 'black'}}>
+      <Link to={`/profissoes?id=${id}`} style={{ textDecoration: 'none' , color: 'black'}}>
         <div className="cardProf">
           <div className="card-image">
           <img src={imgImportDinamico} className='img_pro' alt='Profissão' />
