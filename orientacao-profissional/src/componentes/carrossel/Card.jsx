@@ -28,7 +28,7 @@ const Card = ({ id, nome_profissao, descricao_curta, imagem }) => {
         <div className="cardProf">
           <div className="card-image">
           {/* <img src={require(`././assets/imagens_profissoes/${imagem}`)} className='img_pro' /> */}
-          <img src={trem} className='img_pro' />
+            <img src={trem} className='img_pro' />
           </div>
           <div className="card-text">
             {/* <span className="date">4 days ago</span> */}
