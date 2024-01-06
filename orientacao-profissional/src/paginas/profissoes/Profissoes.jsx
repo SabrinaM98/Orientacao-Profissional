@@ -1,17 +1,32 @@
-import React from 'react'
+import React, { useState, useRef, useEffect } from 'react';
 import './Profissoes.css'
 import Menu from '../../componentes/menu/Menu'
 import Card_profissoes from '../../componentes/Card_profissoes/Card_profissoes'
-import { Filtros_profissoes } from '../../componentes/filtros_profissoes/Filtros_profissoes'
+// import { Filtros_profissoes } from '../../componentes/filtros_profissoes/Filtros_profissoes'
 import Footer from '../../componentes/footer/Footer'
+import axios  from 'axios';
 
 const Profissoes = () => {
-  const dadosHeader = [
-    {
-      id: 1,
-      nome_profissao: "Engenharia Elétrica"
+
+  const [ dadosHeader, setDadosHeader] = useState([]);
+
+  const fetchData = async () => {
+    try {
+      let id = 1;
+      const response = await axios.get(`http://localhost:3001/api/infos_profissao?id=${id}`);
+      debugger
+      setDadosHeader(response.data)
+    } catch (error) {
+      console.error('Erro ao buscar dados:', error);
     }
-  ];
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  debugger
+  console.log(dadosHeader)
   const dadosSecao1 = [
     {
       id: 1,
@@ -50,7 +65,7 @@ const Profissoes = () => {
   ];
   
   let aux = Object.groupBy(dadosSecao2, ({titulo}) => titulo); 
-  console.log(aux)
+  
   // let res = Object.entries(aux);
   // console.log(res)
   // res.map((value, index) => (
@@ -64,7 +79,7 @@ const Profissoes = () => {
       <Menu/>
       <div className='container_profissao'>
         <div className='container_conteudo_profissoes'>
-          <span className='titulo_profissao'>{dadosHeader[0].nome_profissao}</span>
+          <span className='titulo_profissao'>{dadosSecao2[0].nome_profissao}</span>
           <span>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis lacus ut urna viverra faucibus. Nulla pellentesque nunc lobortis suscipit vestibulum. Cras elementum libero eu suscipit tempor. Nullam id justo nibh. Vivamus neque nisl, tempor in justo at, venenatis sollicitudin purus. Nam at pellentesque quam. Sed ipsum ligula, aliquam id eros facilisis, laoreet maximus orci.
               <br />

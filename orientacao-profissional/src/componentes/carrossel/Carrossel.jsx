@@ -13,6 +13,7 @@ const Carrossel = () => {
     try {
       const response = await axios.get(`http://localhost:3001/api/cards_profissoes`);
       setCardData(response.data);
+      debugger
     } catch (error) {
       console.error('Erro ao buscar dados:', error);
     }
