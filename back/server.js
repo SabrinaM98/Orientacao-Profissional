@@ -85,6 +85,31 @@ app.get('/api/usuarios', (req, res) => {
     });
   });
 
+  app.get('/api/skills_profissao', (req, res) => {
+
+    const { id } = req.query;
+    const query = `SELECT
+                      s.id,
+                      s.nome AS skill,
+                      s.tipo
+                    FROM tb_infos_especificas s
+                    JOIN tb_profissoes_infosEspecificas ps ON ps.idskill = s.id
+                    WHERE ps.idprofissao = ${id}`;
+  
+    db.all(query, (err, data) => {
+      if (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Erro ao buscar dados.' });
+      } else {
+        if (data.length === 0) {
+          res.status(404).json({ message: 'Nenhum dado encontrado.' });
+        } else {
+          res.json(data);
+        }
+      }
+    });
+  });
+
   app.listen(port, () => {
     console.log(`Servidor API rodando na porta ${port}`);
   });
