@@ -13,7 +13,7 @@ const Profissoes = () => {
   const location = useLocation();
   const idURL = new URLSearchParams(location.search).get('id');
 
-  console.log("location:", location);
+  //console.log("location:", location);
 
 
   const [ dadosHeader, setDadosHeader] = useState([]);
@@ -45,7 +45,8 @@ const Profissoes = () => {
   }, []);
   
   let dadosCardAgrupado = Object.groupBy(dadosSkills, ({tipo}) => tipo); 
-  
+  let dadosConhecimentos = Object.assign({}, dadosCardAgrupado["3"])
+  delete dadosCardAgrupado["3"]
   // let res = Object.entries(aux);
   // console.log(res)
   // res.map((value, index) => (
@@ -82,10 +83,12 @@ const Profissoes = () => {
         <div className='container_conhecimentos'>
           <span>Conhecimentos Necessários</span>
           <ul>
-              <li>Conhecimento A</li>
-              <li>Conhecimento B</li>
-              <li>Conhecimento C</li>
-            </ul>          
+            {Object.keys(dadosConhecimentos).map((chave, index) => (
+              <div key={index}>
+                <li>{dadosConhecimentos[chave].skill}</li>
+              </div>
+            ))}
+          </ul>          
         </div>
         
         <Card_profissoes dados = {dadosCardAgrupado}/>
@@ -94,7 +97,6 @@ const Profissoes = () => {
 
       </div>
       <Footer />
-
       {/* <div style={{ borderTop: "1px solid rgb(128, 128, 128) ", marginLeft: 20, marginRight: 20 , marginTop: 20}}></div>
        */}
       {/* <section>
