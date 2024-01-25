@@ -1,0 +1,74 @@
+.app-container {
+    display: flex;
+  }
+  
+  .menu-container {
+    width: 150px;
+    height: 100vh;
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .menu-option {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #555;
+  }
+  
+  .menu-option:hover {
+    background-color: #555;
+  }
+  
+  .menu-option.selected {
+    background-color: #555;
+  }
+  
+  .content-container {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+
+
+
+  /* FORM */
+
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px; /* Ajuste conforme necessário */
+    margin: 0 auto; /* Centralizar o formulário */
+  }
+  
+  .form-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+  
+  label {
+    margin-bottom: 5px;
+  }
+  
+  input {
+    height: 32px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+  }
+  
+  .form-buttons {
+    display: flex;
+    gap: 10px;
+  }
