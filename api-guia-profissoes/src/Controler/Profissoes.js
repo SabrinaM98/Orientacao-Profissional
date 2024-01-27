@@ -33,6 +33,17 @@ export async function selectListaNomeProfissao(search) {
         });
 }
 
+export async function selectInfosEspecificas(search) {
+    return openDB()
+        .then(db => {
+            const query = 'SELECT id, nome FROM tb_infos_especificas WHERE nome LIKE ?';
+            const params = [`%${search}%`];
+
+            return db.all(query, params)
+                .then(res => res);
+        });
+}
+
 export async function selectInfosProfissao(id_profissao) {
     return openDB().then(db => {
         const query = `SELECT 

@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import './Admin.css';
+import axios  from 'axios';
 
 const Admin = () => {
   const ref = useRef();
@@ -19,6 +20,16 @@ const Admin = () => {
         descricao_curta: e.target.descricao_curta.value,
         descricao_longa: e.target.descricao_longa.value,
       }
+      await axios.post("http://localhost:3001/cadastro_profissoes", formData).then((response) => {
+              alert("Profissão cadastrada com sucesso!")
+              e.target.nome_profissao.value = ""
+              e.target.descricao_curta.value = ""
+              e.target.descricao_longa.value = ""
+              console.log(response)
+            }).catch(error => { 
+              alert("ERRO!")
+              console.log(error)
+            }) 
     }
 
     if(selectedOption == '1'){
@@ -27,6 +38,15 @@ const Admin = () => {
         nome: e.target.nome.value,
         tipo: e.target.tipo.value,
       }
+      await axios.post("http://localhost:3001/cadastro_info_especifica", formData).then((response) => {
+              alert("Informação cadastrada com sucesso!")
+              e.target.nome.value = ""
+              e.target.tipo.value = ""
+              console.log(response)
+            }).catch(error => { 
+              alert("ERRO!")
+              console.log(error)
+            }) 
     }
 
 

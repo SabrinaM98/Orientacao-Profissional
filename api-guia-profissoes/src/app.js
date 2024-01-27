@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import { cadastroProfissao , atualizarProfissao, selectCardsProfissao, selectListaNomeProfissao, selectInfosProfissao, selectSkillsProfissao, cadastroInfoEspecifica, vinculoInfoEspecificaProfissao } from './Controler/Profissoes.js';
+import { cadastroProfissao , atualizarProfissao, selectCardsProfissao, selectListaNomeProfissao, selectInfosEspecificas, selectInfosProfissao, selectSkillsProfissao, cadastroInfoEspecifica, vinculoInfoEspecificaProfissao } from './Controler/Profissoes.js';
 
 const app = express();
 app.use(cors());
@@ -30,6 +30,23 @@ app.post('/profissoes', async (req, res) => {
         res.json(profissoes);
     } catch (error) {
         console.error('Erro ao buscar profissões:', error);
+        res.status(500).json({ error: 'Erro interno do servidor' });
+    }
+})
+
+app.post('/infos_especificas', async (req, res) => {
+
+    try {
+        const { search } = req.body;
+
+        if (!search) {
+            return res.status(400).json({ error: 'Parâmetro de pesquisa não fornecido' });
+        }
+
+        let infos =  await selectInfosEspecificas(search);
+        res.json(infos);
+    } catch (error) {
+        console.error('Erro ao buscar informações:', error);
         res.status(500).json({ error: 'Erro interno do servidor' });
     }
 })
