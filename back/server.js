@@ -112,7 +112,7 @@ app.get('/api/usuarios', (req, res) => {
 
   app.post('/api/add_info_especifica'), (req, res) => {
     const {nome, tipo} = req.body;
-    const query = 'INSERT INTO tb_infos_especificas(nome, tipo) VALUES(?,?)'
+    const query = `INSERT INTO tb_infos_especificas(nome, tipo) VALUES(?,?)`;
 
     db.run(query, [ nome, tipo ], function(err){
       if(err){
