@@ -2,14 +2,18 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Search = ({ search, setSearch , setResults}) => {
-
+    let BaseUrl = "http://localhost:3001/profissoes";
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await axios.get(`http://localhost:3001/api/profissoes?search=${search}`);
-            setResults(response.data); 
-          
-            console.log(response.data)
+            await axios.post(BaseUrl, {
+                      "search": search,
+                  }).then((response) => {
+                    console.log(response)
+                    setResults(response.data);
+                  }).catch(error => { 
+                    console.log(error.response.data.error)
+                  }) 
         } catch (error) {
             // console.error('Erro ao buscar dados:', error);
             setResults([]);

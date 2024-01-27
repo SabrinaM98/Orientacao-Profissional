@@ -17,7 +17,7 @@ app.get('/cards_profissoes', async (req, res) => {
     res.json(infors_cards);
 })
 
-app.get('/profissoes', async (req, res) => {
+app.post('/profissoes', async (req, res) => {
 
     try {
         const { search } = req.body;
@@ -34,7 +34,7 @@ app.get('/profissoes', async (req, res) => {
     }
 })
 
-app.get('/infos_profissao', async(req, res) => {
+app.post('/infos_profissao', async(req, res) => {
     try{
         const { id_profissao } = req.body;
 
@@ -50,7 +50,7 @@ app.get('/infos_profissao', async(req, res) => {
     }
 })
 
-app.get('/skills_profissao', async(req, res) => {
+app.post('/skills_profissao', async(req, res) => {
     try{
         const { id_profissao } = req.body;
 

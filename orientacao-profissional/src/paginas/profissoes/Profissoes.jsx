@@ -21,9 +21,14 @@ const Profissoes = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://localhost:3001/api/infos_profissao?id=${idURL}`);
-      debugger
-      setDadosHeader(response.data)
+      await axios.post("http://localhost:3001/infos_profissao", {
+              "id_profissao": idURL,
+            }).then((response) => {
+              console.log(response)
+              setDadosHeader(response.data)
+            }).catch(error => { 
+              console.log(error)
+            }) 
     } catch (error) {
       console.error('Erro ao buscar dados:', error);
     }
@@ -31,9 +36,14 @@ const Profissoes = () => {
 
   const fetchData2 = async () => {
     try {
-      const response2 = await axios.get(`http://localhost:3001/api/skills_profissao?id=${idURL}`);
-      debugger
-      setDadosSkills(response2.data)
+      await axios.post("http://localhost:3001/skills_profissao", {
+                "id_profissao": idURL,
+            }).then((response2) => {
+              console.log(response2)
+              setDadosSkills(response2.data)
+            }).catch(error => { 
+              console.log(error)
+            }) 
     } catch (error) {
       console.error('Erro ao buscar dados:', error);
     }
@@ -47,11 +57,6 @@ const Profissoes = () => {
   let dadosCardAgrupado = Object.groupBy(dadosSkills, ({tipo}) => tipo); 
   let dadosConhecimentos = Object.assign({}, dadosCardAgrupado["3"])
   delete dadosCardAgrupado["3"]
-  // let res = Object.entries(aux);
-  // console.log(res)
-  // res.map((value, index) => (
-  //   console.log(index, value)
-  // ))
   
   debugger;
   
