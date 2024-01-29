@@ -1,15 +1,14 @@
 .containerMenu{
     display: flex;
     padding: 16px;
-    background-color: #fff;
+    background-color: var(--primary);
     height: 52px;
     gap: 8px;
     align-items: center;
-    color: black;
+    color: var(--textSecundary)
 }
 .navMenu {
     position: absolute;
-    top: 0;
     right:0;
     display:flex;
     justify-content: space-between;
@@ -18,4 +17,6 @@
 }
 .navMenu a {
     margin-right: 16px;
+    text-decoration: none !important;
+    color: var(--textSecundary)
 }

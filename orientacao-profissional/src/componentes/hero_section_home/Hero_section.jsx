@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Hero_section.css'
-import img_hero from './img_hero.png'
+import hero_secion_img from './hero-secion-img.png'
 import Search from '../filtro_pesquisa/Search';
 
 const Hero_section = () => {
@@ -9,7 +9,10 @@ const Hero_section = () => {
 
   return (
     <div className='hero_section'>
-        <img src={img_hero} className='img_hero'/>
+        <div className='containerIMG'>
+            <img src={hero_secion_img} className='img_hero'/>
+        </div>
+        
         <div className='hero_container'>
             <div className='hero_conteudo'>
                 <span className='conteudo_titulo'>Explorar Carreiras</span>

@@ -4,6 +4,15 @@
     border: 0;
   }
 
+  :root {
+    --primary: #033358;
+    --secundary: #e9e9e9;
+    --terciary: #F6F4F2;
+
+    --textPrimary: #000;
+    --textSecundary: #fff;
+  }
+
   body {
     /* display: flex;
     flex-direction: column;

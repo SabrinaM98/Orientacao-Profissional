@@ -2,8 +2,8 @@
         display: flex;
         padding: 8px;
         align-items: center;
-        background-color: gray;
+        background-color: var(--primary);
         height: 50px;
-        color: #fff;
+        color: var(--textSecundary);
         font-size: 14px;
     }
