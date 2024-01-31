@@ -78,6 +78,17 @@ export async function selectSkillsProfissao(id_profissao) {
     });
 }
 
+export async function selectNoticias(){
+    return openDB()
+        .then(db=>{
+            return db.all(`SELECT * 
+                           FROM tb_noticias
+                           ORDER BY 1 DESC
+                           LIMIT 10`)
+            .then(res=>res)
+        })
+}
+
 export async function cadastroInfoEspecifica(item){
     openDB()
         .then(db=>{
@@ -91,6 +102,14 @@ export async function vinculoInfoEspecificaProfissao(item){
         .then(db=>{
             db.run(`INSERT INTO tb_profissoes_infosEspecificas (idskill, idprofissao) 
             VALUES (?,?)`, [item.idskill, item.idprofissao]);
+        })
+}
+
+export async function cadastroNoticia(item){
+    openDB()
+        .then(db=>{
+            db.run(`INSERT INTO tb_noticias (noticia) 
+            VALUES (?)`, [item.noticia]);
         })
 }
 

@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import { cadastroProfissao , atualizarProfissao, selectCardsProfissao, selectListaNomeProfissao, selectInfosEspecificas, selectInfosProfissao, selectSkillsProfissao, cadastroInfoEspecifica, vinculoInfoEspecificaProfissao } from './Controler/Profissoes.js';
+import { cadastroProfissao , atualizarProfissao, selectCardsProfissao, selectListaNomeProfissao, selectInfosEspecificas, selectInfosProfissao, selectSkillsProfissao, cadastroInfoEspecifica, vinculoInfoEspecificaProfissao, cadastroNoticia, selectNoticias } from './Controler/Profissoes.js';
 
 const app = express();
 app.use(cors());
@@ -15,6 +15,11 @@ app.get('/', (req, res) => {
 app.get('/cards_profissoes', async (req, res) => {
     let infors_cards =  await selectCardsProfissao();
     res.json(infors_cards);
+})
+
+app.get('/noticias', async (req, res) => {
+    let noticias =  await selectNoticias();
+    res.json(noticias);
 })
 
 app.post('/profissoes', async (req, res) => {
@@ -102,6 +107,14 @@ app.post('/cadastro_info_especifica', (req, res) => {
 app.post('/vinculo_skill_profissao', (req, res) => {
     console.log(req.body);
     vinculoInfoEspecificaProfissao(req.body)
+    res.json({
+        "statusCode": 200
+    })
+})
+
+app.post('/cadastro_noticia', (req, res) => {
+    console.log(req.body);
+    cadastroNoticia(req.body)
     res.json({
         "statusCode": 200
     })
