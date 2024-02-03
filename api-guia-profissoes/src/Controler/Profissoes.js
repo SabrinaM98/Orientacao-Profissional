@@ -108,8 +108,8 @@ export async function vinculoInfoEspecificaProfissao(item){
 export async function cadastroNoticia(item){
     openDB()
         .then(db=>{
-            db.run(`INSERT INTO tb_noticias (noticia) 
-            VALUES (?)`, [item.noticia]);
+            db.run(`INSERT INTO tb_noticias (titulo, descricao) 
+            VALUES (?,?)`, [item.titulo, item.descricao]);
         })
 }
 
