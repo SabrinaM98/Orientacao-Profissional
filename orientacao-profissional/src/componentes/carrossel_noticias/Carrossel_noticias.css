@@ -1,4 +1,4 @@
-.section_processes{
+.section_processes_noticia{
     display: flex;
     padding: 80px;
     flex-direction: column;
@@ -6,7 +6,7 @@
     align-items: flex-start;
     gap: 24px;
     align-self: stretch;
-    background: rgba(23, 55, 125, 0.10);;
+    background: #FFF;
 }
 
 .group_cards_pro{
@@ -79,7 +79,7 @@
     gap: 16px;
 }
 
-.cardProf {
+.cardProf_noticia {
   display: grid;
   grid-template-columns: 300px;
   grid-template-rows: 150px 160px 65px;
@@ -89,12 +89,12 @@
   box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
   font-family: roboto;
   text-align: center;
-
+  align-items: end;
   transition: 0.5s ease;
-  cursor: pointer;
+  cursor: pointer !important;
   margin:30px;
 }
-.cardProf:hover {
+.cardProf_noticia:hover {
   transform: scale(1.15);
   box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
 }
@@ -125,14 +125,14 @@
   font-size:28px;
 }
 
-.card-stats {
+.bottom {
   grid-area: stats; 
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
-
+  /* grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr; */
+  height: 15px;
   border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
+  border-bottom-right-radius: 25px;
   background: var(--primary);
 }
 

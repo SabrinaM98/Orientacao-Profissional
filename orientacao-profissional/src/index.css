@@ -13,6 +13,10 @@
     --textSecundary: #fff;
   }
 
+  a{
+    cursor: pointer;
+  }
+
   body {
     /* display: flex;
     flex-direction: column;

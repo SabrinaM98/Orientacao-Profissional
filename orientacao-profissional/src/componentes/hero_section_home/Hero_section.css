@@ -1,47 +1,32 @@
 .hero_section{
     display: flex;
     height: 430px;
-    padding: 80px 650px 80px 140px;
     align-items: flex-start;
-    gap: 40px;
-    align-self: stretch;
-    /* display: flex;
-    height: 100%;
-    max-height: 500px; */
-    /* padding: 80px 140px; */
-    /* align-items: center;
-    gap: 40px;
-    align-self: stretch;*/
-    background: #F0F4F7; 
+    background: #fff; 
+    align-items: center;
 }
 
 .containerIMG{
-    width: 631px;
-    height: 473.101px;
-    position: absolute;
+    width: 40%;
+    height: 430px;
     right: 0px;
-
-    /* top: -22px; */
+    background-image: url(./hero-secion-img.png);
+    /* min-height: 100vh; */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
-
-.img_hero{
-    /* transform: rotateY(180deg); */
-    width: 100%;
-    /* min-height: 430px;
-    max-height: 500px; */
-}
-
+@media screen and (max-width: 930px) {
+    .containerIMG {
+      display: none;
+    }
+  }
 .hero_container{
     display: flex;
-    padding: 40px;
+    padding: 40px 60px;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 40px;
+    /* align-items: flex-start; */
     flex: 1 0 0;
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.53);
-    background: rgba(23, 55, 125, 0.20);
-    backdrop-filter: blur(20.100000381469727px);
 }
 
 .hero_conteudo{
@@ -49,6 +34,18 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 24px;
+}
+
+.box_conteudo{
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    gap: 24px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.53);
+    background: rgba(23, 55, 125, 0.20);
+    backdrop-filter: blur(20.100000381469727px); 
+    min-width: 60%;
 }
 
 .conteudo_titulo{
@@ -74,7 +71,7 @@
     flex: 1 0 0;
     border-radius: 4px;
     background: #FFF;
-    width: 350px;
+    width: 97.5%;
     /* Button01 */
     box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.25);
 }
@@ -82,13 +79,10 @@
 .resultado_pesquisa{
     display: flex;
     flex-direction: column;
-    /* padding: 8px; */
     gap: 4px;
     font-size: 14px;
     border-radius: 0px 0px 8px 8px ;
     background-color: rgb(194, 194, 194);
-    /* position: absolute;
-    width: 100px; */
 }
 
 .resultado_pesquisa >span{
