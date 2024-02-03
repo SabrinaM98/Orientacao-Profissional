@@ -4,6 +4,8 @@ import Card from './Card';
 import './Carrossel.css';
 import img_medico from '../../assets/imagens_profissoes/ilustracao.jpg';
 import axios from 'axios';
+import Left from '../../../public/left-arrow.png'
+import Right from '../../../public/right-arrow.png' 
 
 const Carrossel = () => {
   const [cardData, setCardData] = useState([]);
@@ -37,21 +39,21 @@ const Carrossel = () => {
 
   return (
     <div>
-      <div id='processes' className='section_processes'>
-        <span className='title'>Sugestões de Carreiras</span>
-        <div className='carrossel'>
-          <button onClick={voltar}>&lt;</button>
-          <div ref={carrosselRef} className='group_cards_pro'>
-            {cardData.map((data) => (
-              <React.Fragment key={data.id}>
-                <Card {...data} />
-              </React.Fragment>
-            ))}
-          </div>
-          <button onClick={proximo}>&gt;</button>
+    <div id='processes' className='section_processes'>
+      <span className='title'>Sugestões de Carreiras</span>
+      <div className='carrossel'>
+        <a onClick={voltar}><img className='iconCarrossel' src={Left}/></a>
+        <div ref={carrosselRef} className='group_cards_pro'>
+          {cardData.map((data) => (
+            <React.Fragment key={data.id}>
+              <Card {...data} />
+            </React.Fragment>
+          ))}
         </div>
+        <a onClick={proximo}><img className='iconCarrossel' src={Right}/></a>
       </div>
     </div>
+  </div>
   );
 };
 

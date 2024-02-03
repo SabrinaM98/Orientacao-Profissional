@@ -5,7 +5,11 @@
     gap: 24px;
     width: 400px;
     border-radius: 10px;
-    background-color: grey;
+    /* background-color: var(--primary); */
+    margin: 197px;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 13.5px );
+    -webkit-backdrop-filter: blur( 13.5px );
 }
 .bodyAdmin > input{
     padding: 16px 8px;
@@ -25,12 +29,27 @@
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    background-color: rgb(149, 245, 6);
+    background-color: var(--primary);
     color: #fff;
     font-weight: 700;
 }
 
 .btns > button:hover{
-    background-color: rgb(110, 182, 2);
+    background-color: rgb(0, 92, 145);
+    transition: 1s;
 
+}
+
+.flex-colum{
+    display: flex;
+    justify-content: center;
+    background-image: url(../../componentes/img/guiaProfissao.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.caixa-de-texto{
+    text-decoration: none;
+    outline: none;
 }

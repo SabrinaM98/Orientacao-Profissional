@@ -9,9 +9,7 @@ const Hero_section = () => {
 
   return (
     <div className='hero_section'>
-        <div className='containerIMG'>
-            <img src={hero_secion_img} className='img_hero'/>
-        </div>
+
         
         <div className='hero_container'>
             <div className='hero_conteudo'>
@@ -43,6 +41,9 @@ const Hero_section = () => {
                     <span></span>
                 )}
             </div>
+        </div>
+        <div className='containerIMG'>
+            <img src={hero_secion_img} className='img_hero'/>
         </div>
     </div>
   )
