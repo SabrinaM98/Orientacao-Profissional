@@ -1,14 +1,62 @@
 import React, { useRef} from 'react';
 import axios  from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Cadastro_noticias = () => {
+
+    const notifySuccess = () => 
+    
+    toast.success('Notícia cadastrada com sucesso!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light"
+    });
+
+    const notifyError = () => 
+    
+    toast.error('Preencher todos os campos!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light"
+    });
+
     const ref = useRef();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const formData = {
+            titulo: e.target.titulo.value,
+            descricao: e.target.descricao.value
+        }
         
-        // function aqui 
-
+        if(formData.titulo == ""){
+            notifyError();
+        }else{
+            if(formData.descricao == ""){
+                notifyError();
+            }else{
+                    await axios.post("http://localhost:3001/cadastro_noticia", formData).then((response) => {
+                            notifySuccess();
+                            e.target.titulo.value = ""
+                            e.target.descricao.value = ""
+                            console.log(response)
+                            }).catch(error => { 
+                            alert("ERRO!")
+                            console.log(error)
+                    })
+            }
+        }
     }
   return (
     <div className="content">
@@ -18,11 +66,11 @@ const Cadastro_noticias = () => {
         </div>
         <div className="form-row">
             <label>Titulo:</label>
-            <input className='inputDados' type="text" name='nome_profissao' />
+            <input className='inputDados' type="text" name='titulo' />
         </div>
         <div className="form-row">
             <label>Descrição:</label>
-            <input className='inputDados' type="text" name='descricao_curta' />
+            <input className='inputDados' type="text" name='descricao' />
         </div>
         <div className="form-row">
             <label>Imagem "formato em png":</label>
@@ -31,6 +79,30 @@ const Cadastro_noticias = () => {
         <div className="form-buttons">
             <button type='submit' className='btn'>Salvar</button>
             <button type="button" className='btn'>Cancelar</button>
+            <ToastContainer
+                    position="top-right"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light"/>
+            <ToastContainer />
+            <ToastContainer
+                    position="top-right"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light"/>
+            <ToastContainer />
         </div>
         </form>
     </div>
