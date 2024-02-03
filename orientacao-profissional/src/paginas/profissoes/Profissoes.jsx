@@ -66,7 +66,7 @@ const Profissoes = () => {
       <div>
         {loading ? (<Skeletons/>) : 
           (
-            <div className='flex'>
+            <div >
               <Menu/>
               <div className='container_profissao'>
                 <div className='container_conteudo_profissoes'>
@@ -78,16 +78,6 @@ const Profissoes = () => {
                 </div>
                 <div className='container_conteudo_profissoes'>
                   <span className='titulo_profissao'>Visão Geral da Profissão</span>
-                  {/* <div>
-                    <span className='sub_titulo_visao'>Faltando:</span>
-                    <ul>
-                      <li>Como é o ambiente de trabalho</li>
-                      <li>Rotina do trabalho</li>
-                      <li>Retorno/Plano de carreira</li>
-                      <li>Atividades do dia a dia</li>
-                      <li>Depoimentos de pessoas inseridas no mercado</li>
-                    </ul>
-                  </div> */}
                 </div>
                 <div className='container_conhecimentos'>
                   <span>Conhecimentos Necessários</span>

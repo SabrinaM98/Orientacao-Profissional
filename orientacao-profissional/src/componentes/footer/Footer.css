@@ -6,4 +6,5 @@
         height: 50px;
         color: var(--textSecundary);
         font-size: 14px;
+        justify-content: center;
     }
