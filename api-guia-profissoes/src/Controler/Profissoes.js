@@ -24,7 +24,7 @@ export async function excluirProfissao(item){
 export async function selectCardsProfissao(){
     return openDB()
         .then(db=>{
-            return db.all('SELECT id, nome_profissao, descricao_curta, imagem FROM tb_profissoes WHERE descricao_curta IS NOT NULL')
+            return db.all('SELECT id, nome_profissao, descricao_curta, imagem FROM tb_profissoes WHERE descricao_curta IS NOT NULL AND imagem IS NOT NULL')
             .then(res=>res)
         })
 }
