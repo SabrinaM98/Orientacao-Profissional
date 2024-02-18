@@ -11,7 +11,7 @@ const Carrossel_noticias = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://localhost:3001/cards_profissoes`);
+      const response = await axios.get(`http://localhost:3001/noticias`);
       setCardData(response.data);
       debugger
     } catch (error) {
