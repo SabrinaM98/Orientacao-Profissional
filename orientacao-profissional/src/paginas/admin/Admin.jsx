@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './Admin.css';
 
-import Cadastro_profissao from './cruds/cadastro_profissao';
+// import Cadastro_profissao from './cruds/cadastro_profissao';
 import Cadastro_conhecimento from './cruds/Cadastro_conhecimento';
 import Vinculo_profissoes from './cruds/Vinculo_profissoes';
-import Cadastro_noticias from './cruds/Cadastro_noticias';
+// import Cadastro_noticias from './cruds/Cadastro_noticias';
 
 
 const Admin = () => {

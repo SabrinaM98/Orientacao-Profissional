@@ -3,6 +3,7 @@ import './Hero_section.css'
 import hero_secion_img from './hero-secion-img.png'
 import Search from '../filtro_pesquisa/Search';
 import { Link } from 'react-router-dom';
+import Menu from '../menu/Menu';
 
 const Hero_section = () => {
     const [search, setSearch] = useState('');
@@ -10,13 +11,13 @@ const Hero_section = () => {
 
   return (
     <div className='hero_section'>
-
+        <Menu/>
         
         <div className='hero_container'>
             <div className='box_conteudo'>
                 <div className='hero_conteudo'>
-                    <span className='conteudo_titulo'>Explorar Carreiras</span>
-                    <span>texto copy de descrição</span>
+                    <div className='conteudo_titulo'>Explore <span>carreiras</span>, descubra <span>paixões</span> e alcance o <span>sucesso!</span></div>
+                    <span></span>
                 </div>
                 <div>
                     <Search search={search} setSearch={setSearch} setResults={setResults} />
@@ -36,9 +37,9 @@ const Hero_section = () => {
                     {/* <input className='input_hero' placeholder='Digite suas paixões, interesses, habilidades ou profissão que deseja encontrar'></input> */}
                     {search.length == 0 ? (
                     <div className='opcoes_busca'>
-                        <Link to={`/profissoes?id=${1}`} style={{ textDecoration: 'none' , color: 'black'}}>Medicina</Link>
-                        <Link to={`/profissoes?id=${2}`} style={{ textDecoration: 'none' , color: 'black'}}>Engenharia</Link>
-                        <Link to={`/profissoes?id=${3}`} style={{ textDecoration: 'none' , color: 'black'}}>Tecnologia da Informação (TI)</Link>
+                        <Link to={`/profissoes?id=${1}`} style={{ textDecoration: 'none' , color: '#023E8A', cursor: 'pointer'}}>Medicina</Link>
+                        <Link to={`/profissoes?id=${2}`} style={{ textDecoration: 'none' , color: '#023E8A', cursor: 'pointer'}}>Engenharia</Link>
+                        <Link to={`/profissoes?id=${3}`} style={{ textDecoration: 'none' , color: '#023E8A', cursor: 'pointer'}}>Tecnologia da Informação (TI)</Link>
                     </div>
                     ):(
                         <span></span>
@@ -47,9 +48,9 @@ const Hero_section = () => {
             </div>
 
         </div>
-        <div className='containerIMG'>
+        {/* <div className='containerIMG'> */}
             {/* <img src={hero_secion_img} className='img_hero'/> */}
-        </div>
+        {/* </div> */}
     </div>
   )
 }

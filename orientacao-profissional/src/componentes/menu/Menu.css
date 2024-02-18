@@ -1,22 +1,25 @@
 .containerMenu{
     display: flex;
-    padding: 16px;
-    background-color: var(--primary);
+    padding: 16px 40px;
     height: 52px;
     gap: 8px;
     align-items: center;
-    color: var(--textSecundary)
+    color: var(--textSecundary);
+    border: 1px solid rgba(255, 255, 255, 0.11);
+    background: rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(3.5999999046325684px);
 }
 .navMenu {
     position: absolute;
     right:0;
     display:flex;
-    justify-content: space-between;
-    padding:16px;
-    margin-right:16px;
+    gap: 24px;
 }
 .navMenu a {
     margin-right: 16px;
     text-decoration: none !important;
-    color: var(--textSecundary)
+    color: var(--textSecundary);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
 }

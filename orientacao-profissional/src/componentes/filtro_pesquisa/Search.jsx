@@ -31,7 +31,7 @@ const Search = ({ search, setSearch , setResults}) => {
     return (
       <div className="search">
           {/* <h2>Pesquisar:</h2> */}
-          <input className='input_hero' type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Digite para pesquisar..."/>
+          <input className='input_hero' type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Digite suas paixões, interesses, habilidades ou profissão que deseja encontrar"/>
       </div>
     )
   }

@@ -10,7 +10,7 @@ import Carrossel_noticias from '../../componentes/carrossel_noticias/Carrossel_n
 const Home = () => {
   return (
     <div className='flex'>
-        <Menu/>
+        {/* <Menu/> */}
         <Hero_section />
         <Carrossel/>
         <Carrossel_noticias/>
