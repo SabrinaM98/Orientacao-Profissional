@@ -14,6 +14,13 @@ export async function atualizarProfissao(item){
         })
 }
 
+export async function excluirProfissao(item){
+    openDB()
+        .then(db=>{
+            db.run('DELETE FROM tb_profissoes WHERE id=?', [item.id_profissao]);
+        })
+}
+
 export async function selectCardsProfissao(){
     return openDB()
         .then(db=>{
@@ -113,7 +120,30 @@ export async function cadastroNoticia(item){
         })
 }
 
+export async function checkProfissao(id_profissao) {
+    return openDB()
+        .then(db => {
+            const query = 
+                    `SELECT * 
+                    FROM tb_profissoes_infosEspecificas WHERE idprofissao = ?`;
+            const params = [id_profissao];
 
+            return db.all(query, params)
+                .then(res => res);
+        });
+}
+
+export async function checkSkill(id_skill) {
+    return openDB()
+        .then(db => {
+            const query = `SELECT * 
+                        FROM tb_profissoes_infosEspecificas WHERE idskill = ?`;
+            const params = [id_skill];
+
+            return db.all(query, params)
+                .then(res => res);
+        });
+}
 
 
 

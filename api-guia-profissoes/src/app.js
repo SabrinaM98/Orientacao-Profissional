@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import { cadastroProfissao , atualizarProfissao, selectCardsProfissao, selectListaNomeProfissao, selectInfosEspecificas, selectInfosProfissao, selectSkillsProfissao, cadastroInfoEspecifica, vinculoInfoEspecificaProfissao, cadastroNoticia, selectNoticias } from './Controler/Profissoes.js';
+import { cadastroProfissao , atualizarProfissao, selectCardsProfissao, selectListaNomeProfissao, selectInfosEspecificas, selectInfosProfissao, selectSkillsProfissao, cadastroInfoEspecifica, vinculoInfoEspecificaProfissao, cadastroNoticia, selectNoticias, excluirProfissao, checkProfissao, checkSkill } from './Controler/Profissoes.js';
 
 const app = express();
 app.use(cors());
@@ -84,6 +84,56 @@ app.post('/skills_profissao', async(req, res) => {
         res.json(skills_profissao);
     }catch(error){
         console.error('Erro ao buscar skills da profissão:', error);
+        res.status(500).json({ error: 'Erro interno do servidor' });
+    }
+})
+
+app.post('/excluirProfissao', async(req, res) => {
+
+    try{
+        const { id_profissao } = req.body;
+
+        if (!id_profissao) {
+            return res.status(400).json({ error: 'Parâmetro de pesquisa não fornecido' });
+        }
+
+        let result =  await checkProfissao(id_profissao);
+
+        if(result.length == 0){
+
+            try{
+                let result_delete =  excluirProfissao(req.body);
+                res.json(result_delete);
+            }catch(e){
+                console.error('Erro ao excluir profissão:', error);
+                res.status(500).json({ error: 'Erro interno do servidor' });
+            }
+
+        }else{
+            return res.status(400).json({ error: 'Profissão possui skills/habilidades vinculadas' });
+        }
+        
+    }catch(error){
+        console.error('Erro ao excluir profissão:', error);
+        res.status(500).json({ error: 'Erro interno do servidor' });
+    }
+
+})
+
+
+
+app.post('/check_profissao', async(req, res) => {
+    try{
+        const { id_profissao } = req.body;
+
+        if (!id_profissao) {
+            return res.status(400).json({ error: 'Parâmetro de pesquisa não fornecido' });
+        }
+
+        let result =  await checkProfissao(id_profissao);
+        res.json(result);
+    }catch(error){
+        console.error('Erro ao buscar informações da profissão:', error);
         res.status(500).json({ error: 'Erro interno do servidor' });
     }
 })

@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Card from './Card';
 import './Carrossel.css';
-import img_medico from '../../assets/imagens_profissoes/ilustracao.jpg';
 import axios from 'axios';
 import Left from '../../../public/left-arrow.png'
 import Right from '../../../public/right-arrow.png' 
