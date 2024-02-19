@@ -61,10 +61,7 @@ export async function selectInfosEspecificas(search) {
 export async function selectInfosProfissao(id_profissao) {
     return openDB().then(db => {
         const query = `SELECT 
-                            id, 
-                            nome_profissao, 
-                            descricao_longa, 
-                            imagem 
+                            * 
                             FROM tb_profissoes 
                             WHERE id = ?`;
 
