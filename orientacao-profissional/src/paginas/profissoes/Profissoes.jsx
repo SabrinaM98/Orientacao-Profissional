@@ -21,7 +21,7 @@ const Profissoes = () => {
       await axios.post("http://localhost:3001/infos_profissao", {
               "id_profissao": idURL,
             }).then((response) => {
-              console.log(response)
+              //console.log(response)
               setDadosHeader(response.data)
             }).catch(error => { 
               console.log(error)
@@ -36,7 +36,7 @@ const Profissoes = () => {
       await axios.post("http://localhost:3001/skills_profissao", {
                 "id_profissao": idURL,
             }).then((response2) => {
-              console.log(response2)
+              //console.log(response2)
               setDadosSkills(response2.data)
             }).catch(error => { 
               console.log(error)
@@ -52,13 +52,13 @@ const Profissoes = () => {
       fetchData();
       fetchData2();
       setLoading(false);
-    }, 3000);
+    }, 1500);
     return () => clearTimeout(timer);
   }, []);
   
   let dadosCardAgrupado = Object.groupBy(dadosSkills, ({tipo}) => tipo); 
-  let dadosConhecimentos = Object.assign({}, dadosCardAgrupado["3"])
-  delete dadosCardAgrupado["3"]
+  let dadosConhecimentos = Object.assign({}, dadosCardAgrupado["4"])
+  delete dadosCardAgrupado["4"]
   
   debugger;
   
@@ -77,10 +77,15 @@ const Profissoes = () => {
                   </span>
                 </div>
                 <div className='container_conteudo_profissoes'>
-                  <span className='titulo_profissao'>Visão Geral da Profissão</span>
+                  <span className='titulo_profissao'>Curso de Medicina</span>
+                  <span>
+                      {dadosHeader.length > 0 && dadosHeader[0].descricao_curso}
+                      <br/>
+                  </span>
+                  <span><b>Tempo de Conclusão</b>: Bacharelado - {dadosHeader.length > 0 && dadosHeader[0].tempo_conclusao}</span>
                 </div>
                 <div className='container_conhecimentos'>
-                  <span>Conhecimentos Necessários</span>
+                  <span>Retorno/Plano de Carreira</span>
                   <ul>
                     {Object.keys(dadosConhecimentos).map((chave, index) => (
                       <div key={index}>
@@ -91,14 +96,38 @@ const Profissoes = () => {
                 </div>
           
                 <Card_profissoes dados = {dadosCardAgrupado}/>
+                
+                <div className='container_conteudo_profissoes'>
+                  <span className='titulo_profissao'>Como é o ambiente de trabalho</span>
+                  <span>
+                      {dadosHeader.length > 0 && dadosHeader[0].ambiente_trabalho}
+                      <br/>
+                  </span>
+                </div>
 
-                  {/* <div style={{ borderTop: "1px solid rgb(128, 128, 128) ", marginLeft: 20, marginRight: 20 , marginTop: 20}}></div>
-                    */}
-                    {/* <section>
-                      <React.Fragment>
-                        <Filtros_profissoes/>
-                      </React.Fragment>
-                    </section> */}
+                <div className='container_conteudo_profissoes'>
+                  <span className='titulo_profissao'>Rotina de Trabalho</span>
+                  <span>
+                      {dadosHeader.length > 0 && dadosHeader[0].rotina_trabalho}
+                      <br/>
+                  </span>
+                </div>
+
+                <div className='container_conteudo_profissoes'>
+                  <span className='titulo_profissao'>Atividades do dia a dia</span>
+                  <span>
+                      {dadosHeader.length > 0 && dadosHeader[0].atividades}
+                      <br/>
+                  </span>
+                </div>
+
+                <div className='container_conteudo_profissoes'>
+                  <span className='titulo_profissao'>Vídeos de Apoio</span>
+                    <video width="320" height="240" controls> 
+                      <source src={dadosHeader.length > 0 && dadosHeader[0].link_video} type="video/mp4" /> 
+                    </video>
+                </div>
+                
               </div>
               <Footer />
             </div>
