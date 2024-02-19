@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import { cadastroProfissao , atualizarProfissao, selectCardsProfissao, selectListaNomeProfissao, selectInfosEspecificas, selectInfosProfissao, selectSkillsProfissao, cadastroInfoEspecifica, vinculoInfoEspecificaProfissao, cadastroNoticia, selectNoticias, excluirProfissao, checkProfissao, checkSkill } from './Controler/Profissoes.js';
+import { cadastroProfissao , atualizarProfissao, selectCardsProfissao, selectListaNomeProfissao, selectInfosEspecificas, selectInfosProfissao, selectSkillsProfissao, cadastroInfoEspecifica, vinculoInfoEspecificaProfissao, cadastroNoticia, selectNoticias, excluirProfissao, excluirSkill, checkProfissao, checkSkill } from './Controler/Profissoes.js';
 
 const app = express();
 app.use(cors());
@@ -94,21 +94,16 @@ app.post('/excluirProfissao', async(req, res) => {
         const { id_profissao } = req.body;
 
         if (!id_profissao) {
-            return res.status(400).json({ error: 'Parâmetro de pesquisa não fornecido' });
+            return res.status(400).json({ error: 'Parâmetro de id não fornecido' });
         }
 
         let result =  await checkProfissao(id_profissao);
 
         if(result.length == 0){
-
-            try{
-                let result_delete =  excluirProfissao(req.body);
-                res.json(result_delete);
-            }catch(e){
-                console.error('Erro ao excluir profissão:', error);
-                res.status(500).json({ error: 'Erro interno do servidor' });
-            }
-
+            await excluirProfissao(req.body);
+            res.json({
+                "statusCode": 200
+            })
         }else{
             return res.status(400).json({ error: 'Profissão possui skills/habilidades vinculadas' });
         }
@@ -120,7 +115,32 @@ app.post('/excluirProfissao', async(req, res) => {
 
 })
 
+app.post('/excluirSkill', async(req, res) => {
 
+    try{
+        const { id_skill } = req.body;
+
+        if (!id_skill) {
+            return res.status(400).json({ error: 'Parâmetro de id não fornecido' });
+        }
+
+        let result =  await checkSkill(id_skill);
+
+        if(result.length == 0){
+            await excluirSkill(req.body);
+            res.json({
+                "statusCode": 200
+            })
+        }else{
+            return res.status(400).json({ error: 'Skill/Habilidade está vinculada à profissões existentes' });
+        }
+        
+    }catch(error){
+        console.error('Erro ao excluir skill:', error);
+        res.status(500).json({ error: 'Erro interno do servidor' });
+    }
+
+})
 
 app.post('/check_profissao', async(req, res) => {
     try{
