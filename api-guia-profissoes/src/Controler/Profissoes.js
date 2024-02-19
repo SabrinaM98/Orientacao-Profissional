@@ -21,6 +21,13 @@ export async function excluirProfissao(item){
         })
 }
 
+export async function excluirSkill(item){
+    openDB()
+        .then(db=>{
+            db.run('DELETE FROM tb_infos_especificas WHERE id=?', [item.id_skill]);
+        })
+}
+
 export async function selectCardsProfissao(){
     return openDB()
         .then(db=>{
