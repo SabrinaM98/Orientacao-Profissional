@@ -77,7 +77,7 @@ const Profissoes = () => {
                   </span>
                 </div>
                 <div className='container_conteudo_profissoes'>
-                  <span className='titulo_profissao'>Curso de Medicina</span>
+                  <span className='titulo_profissao'>Curso de {dadosHeader.length > 0 && dadosHeader[0].nome_profissao}</span>
                   <span>
                       {dadosHeader.length > 0 && dadosHeader[0].descricao_curso}
                       <br/>
