@@ -122,10 +122,8 @@ const Profissoes = () => {
                 </div>
 
                 <div className='container_conteudo_profissoes'>
-                  <span className='titulo_profissao'>Vídeos de Apoio</span>
-                    <video width="320" height="240" controls> 
-                      <source src={dadosHeader.length > 0 && dadosHeader[0].link_video} type="video/mp4" /> 
-                    </video>
+                  <span className='titulo_profissao'>Vídeo de Apoio</span>
+                      <iframe width="829" height="466" src={dadosHeader.length > 0 && dadosHeader[0].link_video}></iframe>
                 </div>
                 
               </div>
