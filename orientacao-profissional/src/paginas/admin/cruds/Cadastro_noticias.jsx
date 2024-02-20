@@ -65,15 +65,15 @@ const Cadastro_noticias = () => {
             <span className='tituloCadastro'>Cadastro Noticias</span>
         </div>
         <div className="form-row">
-            <label>Titulo:</label>
+            <label>Título*:</label>
             <input className='inputDados' type="text" name='titulo' />
         </div>
         <div className="form-row">
-            <label>Descrição:</label>
+            <label>Descrição*:</label>
             <input className='inputDados' type="text" name='descricao' />
         </div>
         <div className="form-row">
-            <label>Imagem "formato em png":</label>
+            <label>Imagem "formato em png" *:</label>
             <input type="file" name="imagem" className="inputImg" multiple/>
         </div>
         <div className="form-buttons">
