@@ -68,19 +68,19 @@ const Cadastro_profissao = () => {
             <span className='tituloCadastro'>Cadastro de profissão</span>
         </div>
         <div className="form-row">
-            <label>Nome profissão:</label>
+            <label>Nome profissão*:</label>
             <input className='inputDados' type="text" name='nome_profissao' />
         </div>
         <div className="form-row">
-            <label>Descrição curta:</label>
+            <label>Descrição curta*:</label>
             <input className='inputDados' type="text" name='descricao_curta' />
         </div>
         <div className="form-row">
-            <label>Descrição longa:</label>
+            <label>Descrição longa*:</label>
             <textarea type="text" rows="4" name='descricao_longa'></textarea>
         </div>
         <div className="form-row">
-            <label>Imagem "formato em png":</label>
+            <label>Imagem "formato em png" *:</label>
             <input type="file" name="imagem" className="inputImg" multiple/>
         </div>
         
