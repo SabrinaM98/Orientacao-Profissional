@@ -67,7 +67,7 @@ const Profissoes = () => {
         {loading ? (<Skeletons/>) : 
           (
             <div >
-              <Menu/>
+              <Menu showHome={true} showCarreira={false} showNoticias={false} showConcursos={false} backgroundColor='var(--primary)'/>
               <div className='container_profissao'>
                 <div className='container_conteudo_profissoes'>
                   <span className='titulo_profissao'>{dadosHeader.length > 0 && dadosHeader[0].nome_profissao}</span>

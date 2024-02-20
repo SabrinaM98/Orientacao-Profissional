@@ -37,7 +37,7 @@ const Carrossel_noticias = () => {
 
   return (
     <div>
-    <div id='processes' className='section_processes_noticia'>
+    <div id='noticias' className='section_processes_noticia'>
       <span className='title'>Notícias</span>
       <div className='carrossel'>
         <a onClick={voltar}><img className='iconCarrossel' src={Left}/></a>

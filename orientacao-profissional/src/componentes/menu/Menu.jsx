@@ -2,17 +2,28 @@ import React from 'react'
 import './Menu.css'
 import logo from '../../../public/vite.svg'
 
-const Menu = () => {
+const Menu = ({ showHome, showCarreira, showNoticias, showConcursos , backgroundColor}) => {
+  
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      window.scrollTo({
+        top: section.offsetTop,
+        behavior: "smooth"
+      });
+    }
+  };
+  
   return (
     <div>
-      <div className='containerMenu'>
+      <div className='containerMenu' style={{ backgroundColor: backgroundColor }}>
         {/* <img src={logo}/>
         <span>Orientação Profissional</span> */}
         <nav className='navMenu'>
-            {/* <a href="/">Home</a> */}
-            <a href="/">Sugestões de Carreira</a>
-            <a href="/">Notícias</a>
-            <a href="/">Concursos Abertos</a>
+            {showHome && <a href="/">Home</a>}
+            {showCarreira && <a href="#sugestoes" onClick={() => scrollToSection("sugestoes")}>Sugestões de Carreira</a>}
+            {showNoticias && <a href="#noticias" onClick={() => scrollToSection("noticias")}>Notícias</a>}
+            {showConcursos && <a href="#concursos" onClick={() => scrollToSection("concursos")}>Concursos Abertos</a>}
             <a href="/">Sobre</a>
 
             {/* <a href="#Objetivos">Buscar</a>

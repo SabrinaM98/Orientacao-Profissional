@@ -1,12 +1,11 @@
 .container_profissao{
     display: flex;
-    padding: 80px 140px 80px 140px;
+    padding: 40px 140px 80px 140px;
     flex-direction: column;
     align-items: flex-start;
     gap: 40px;
     align-self: stretch; 
-    background: #F0F4F7; 
-    height: 100vh;
+    background: #E1EDFF; 
 }
 
 .titulo_profissao{
@@ -23,7 +22,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 24px;
+    gap: 16px;
     align-self: stretch;    
 }
 
@@ -39,7 +38,6 @@ ul{
 
 .container_conhecimentos{
     display: flex;
-    min-height: 250px;
     padding: 24px;
     flex-direction: column;
     align-items: flex-start;
@@ -47,4 +45,11 @@ ul{
     align-self: stretch;
     border-radius: 8px;
     background: #FFF;
+    font-size: 16px;
+}
+
+.container_conhecimentos > ul{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
