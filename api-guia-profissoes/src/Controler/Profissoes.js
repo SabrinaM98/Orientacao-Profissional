@@ -31,7 +31,15 @@ export async function excluirSkill(item){
 export async function selectCardsProfissao(){
     return openDB()
         .then(db=>{
-            return db.all('SELECT id, nome_profissao, descricao_curta, imagem FROM tb_profissoes WHERE descricao_curta IS NOT NULL AND imagem IS NOT NULL')
+            return db.all('SELECT id, nome_profissao, descricao_curta, imagem FROM tb_profissoes WHERE descricao_curta IS NOT NULL AND imagem IS NOT NULL ORDER BY 2 ASC')
+            .then(res=>res)
+        })
+}
+
+export async function selectSkills(){
+    return openDB()
+        .then(db=>{
+            return db.all('SELECT id, nome AS skill FROM tb_infos_especificas ORDER BY 2 ASC')
             .then(res=>res)
         })
 }
