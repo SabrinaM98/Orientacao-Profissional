@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import { cadastroProfissao , atualizarProfissao, selectCardsProfissao, selectListaNomeProfissao, selectInfosEspecificas, selectInfosProfissao, selectSkillsProfissao, cadastroInfoEspecifica, vinculoInfoEspecificaProfissao, cadastroNoticia, selectNoticias, excluirProfissao, excluirSkill, checkProfissao, checkSkill } from './Controler/Profissoes.js';
+import { cadastroProfissao , atualizarProfissao, selectCardsProfissao, selectSkills, selectListaNomeProfissao, selectInfosEspecificas, selectInfosProfissao, selectSkillsProfissao, cadastroInfoEspecifica, vinculoInfoEspecificaProfissao, cadastroNoticia, selectNoticias, excluirProfissao, excluirSkill, checkProfissao, checkSkill } from './Controler/Profissoes.js';
 
 const app = express();
 app.use(cors());
@@ -15,6 +15,11 @@ app.get('/', (req, res) => {
 app.get('/cards_profissoes', async (req, res) => {
     let infors_cards =  await selectCardsProfissao();
     res.json(infors_cards);
+})
+
+app.get('/skills', async (req, res) => {
+    let skills =  await selectSkills();
+    res.json(skills);
 })
 
 app.get('/noticias', async (req, res) => {
