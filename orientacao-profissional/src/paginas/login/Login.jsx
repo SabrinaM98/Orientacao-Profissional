@@ -17,7 +17,7 @@ function Login  ()  {
 
   //Variaveis da funçao de login
   const [ signInWithEmailAndPassword, user, loading, error, ] = useSignInWithEmailAndPassword(auth);
-
+  
   const handleNomeChange = (e) => {
     setNome(e.target.value);
   };
@@ -37,7 +37,8 @@ function Login  ()  {
   return !error ? (
       <div className='flex-colum'>
       <div className='bodyAdmin'>
-        <input placeholder='Nome' value={nome} onChange={handleNomeChange} className='caixa-de-texto'></input>
+        <span>Admin Guia Profissões</span>
+        <input placeholder='Usuario' value={nome} onChange={handleNomeChange} className='caixa-de-texto'></input>
         <input placeholder='Senha' type='password' value={senha} onChange={handleSenhaChange} className='caixa-de-texto'></input>
         <div className='btns'>
           <button onClick={handleSingnIn}>Login</button>
