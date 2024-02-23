@@ -6,6 +6,7 @@ import './App.css'
 import Home from './paginas/home/Home'
 import Profissoes from "./paginas/profissoes/Profissoes";
 import Login from "./paginas/login/Login";
+import SobreNos from "./paginas/sobrenos/SobreNos";
 import './index.css'
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/profissoes" element={<Profissoes />} />
         <Route path="/admin" element={<Login />} />
+        <Route path="/sobreNos" element={<SobreNos />} />
       </Routes>
     </BrowserRouter>
   );

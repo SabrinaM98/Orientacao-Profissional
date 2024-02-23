@@ -11,7 +11,7 @@ const Hero_section = () => {
 
   return (
     <div className='hero_section'>
-        <Menu showHome={false} showCarreira={true} showNoticias={true} showConcursos={true}/>
+        <Menu showHome={false} showCarreira={true} showNoticias={true} showConcursos={true} showSobreNos={true}/>
         
         <div className='hero_container'>
             <div className='box_conteudo'>

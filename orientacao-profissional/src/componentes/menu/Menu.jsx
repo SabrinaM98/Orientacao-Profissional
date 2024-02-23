@@ -2,7 +2,7 @@ import React from 'react'
 import './Menu.css'
 import logo from '../../../public/vite.svg'
 
-const Menu = ({ showHome, showCarreira, showNoticias, showConcursos , backgroundColor}) => {
+const Menu = ({ showHome, showCarreira, showNoticias, showConcursos, showSobreNos , backgroundColor}) => {
   
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
@@ -24,7 +24,7 @@ const Menu = ({ showHome, showCarreira, showNoticias, showConcursos , background
             {showCarreira && <a href="#sugestoes" onClick={() => scrollToSection("sugestoes")}>Sugestões de Carreira</a>}
             {showNoticias && <a href="#noticias" onClick={() => scrollToSection("noticias")}>Notícias</a>}
             {showConcursos && <a href="#concursos" onClick={() => scrollToSection("concursos")}>Concursos Abertos</a>}
-            <a href="/">Sobre</a>
+            {showSobreNos && <a href="/sobreNos">Sobre</a>}
 
             {/* <a href="#Objetivos">Buscar</a>
             <a href="#comoSomos">Desenvolvimento</a> */}
