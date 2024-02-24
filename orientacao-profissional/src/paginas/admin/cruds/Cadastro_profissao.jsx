@@ -35,31 +35,39 @@ const Cadastro_profissao = () => {
             nome_profissao: e.target.nome_profissao.value,
             descricao_curta: e.target.descricao_curta.value,
             descricao_longa: e.target.descricao_longa.value,
+            descricao_curso: e.target.descricao_curso.value,
+            duracao: e.target.duracao.value,
+            ambiente: e.target.ambiente.value,
+            rotina: e.target.rotina.value,
+            atividades: e.target.atividades.value,
+            link_video: "https://www.youtube.com/embed/" + e.target.link.value.slice(32,50),
+            imagem: e.target.imagem.value.slice(12,100),
         }
         
-        if(formData.nome_profissao == ""){
+        if(formData.nome_profissao == "" || formData.descricao_curta == "" || formData.descricao_longa == "" || formData.ambiente == "" || formData.rotina == "" || formData.atividades == "" || formData.link == "" || formData.imagem == ""){
             notifyError();
+            
         }else{
-            if(formData.descricao_curta == ""){
-                notifyError();
-            }else{
-                if(formData.descricao_longa == ""){
-                    notifyError();
-                }else{
-                    await axios.post("http://localhost:3001/cadastro_profissoes", formData).then((response) => {
-                            notifySuccess();
-                            e.target.nome_profissao.value = ""
-                            e.target.descricao_curta.value = ""
-                            e.target.descricao_longa.value = ""
-                            console.log(response)
-                            }).catch(error => { 
-                            alert("ERRO!")
-                            console.log(error)
-                    })
-                }
-            }
+
+            await axios.post("http://localhost:3001/cadastro_profissoes", formData).then((response) => {
+                    notifySuccess();
+                    e.target.nome_profissao.value = ""
+                    e.target.descricao_curta.value = ""
+                    e.target.descricao_longa.value = ""
+                    e.target.descricao_curso.value = ""
+                    e.target.duracao.value = ""
+                    e.target.ambiente.value = ""
+                    e.target.rotina.value = ""
+                    e.target.atividades.value = ""
+                    e.target.link.value = ""
+                    e.target.imagem.value = ""
+                    console.log(response)
+                    }).catch(error => { 
+                    alert("ERRO!")
+                    console.log(error)
+            })
+ 
         } 
-        
     }
   return (
     <div className="content">
@@ -78,6 +86,30 @@ const Cadastro_profissao = () => {
         <div className="form-row">
             <label>Descrição longa*:</label>
             <textarea type="text" rows="4" name='descricao_longa'></textarea>
+        </div>
+        <div className="form-row">
+            <label>Descrição do Curso*:</label>
+            <textarea type="text" rows="4" name='descricao_curso'></textarea>
+        </div>
+        <div className="form-row">
+            <label>Duração do curso*:</label>
+            <input className='inputDados' type="text" name='duracao' />
+        </div>
+        <div className="form-row">
+            <label>Descrição do ambiente de trabalho*:</label>
+            <textarea type="text" rows="4" name='ambiente'></textarea>
+        </div>
+        <div className="form-row">
+            <label>Descrição da rotina de trabalho*:</label>
+            <textarea type="text" rows="4" name='rotina'></textarea>
+        </div>
+        <div className="form-row">
+            <label>Descrição das atividades do dia a dia da profissão*:</label>
+            <textarea type="text" rows="4" name='atividades'></textarea>
+        </div>
+        <div className="form-row">
+            <label>Link de vídeo do youtube*:</label>
+            <input className='inputDados' type="text" name='link' />
         </div>
         <div className="form-row">
             <label>Imagem "formato em png" *:</label>
