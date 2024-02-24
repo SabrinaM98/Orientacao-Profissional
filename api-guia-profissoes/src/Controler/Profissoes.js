@@ -3,7 +3,9 @@ import { openDB } from "../configDB.js";
 export async function cadastroProfissao(item){
     openDB()
         .then(db=>{
-            db.run('INSERT INTO tb_profissoes (nome_profissao, descricao_curta, descricao_longa) VALUES (?,?,?)', [item.nome_profissao, item.descricao_curta, item.descricao_longa]);
+            db.run(`INSERT INTO tb_profissoes 
+            (nome_profissao, descricao_curta, descricao_longa, imagem, descricao_curso, tempo_conclusao, ambiente_trabalho, rotina_trabalho, atividades, link_video) 
+            VALUES (?,?,?,?,?,?,?,?,?,?)`, [item.nome_profissao, item.descricao_curta, item.descricao_longa, item.imagem, item.descricao_curso, item.duracao, item.ambiente, item.rotina, item.atividades, item.link_video]);
         })
 }
 
