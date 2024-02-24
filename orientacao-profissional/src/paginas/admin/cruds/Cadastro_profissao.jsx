@@ -1,9 +1,12 @@
-import React, { useRef} from 'react';
+import React, { useRef, useState , useEffect } from 'react';
 import axios  from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './table.css'
 
 const Cadastro_profissao = () => {
+    const [profissoes, setProfissoes] = useState([]);
+
     const notifySuccess = () => toast.success('Profissão cadastrada com sucesso!', {
         position: "top-right",
         autoClose: 5000,
@@ -69,8 +72,44 @@ const Cadastro_profissao = () => {
  
         } 
     }
+
+    const fetchData = async () => {
+        debugger;
+        try {
+          const response = await axios.get(`http://localhost:3001/cards_profissoes`);
+          setProfissoes(response.data);
+
+          debugger
+        } catch (error) {
+          console.error('Erro ao buscar dados:', error);
+        }
+      };
+
+      useEffect(() => {
+        fetchData();
+      }, []);
+
   return (
     <div className="content">
+            <span>Profissões cadastradas</span>
+            <table >
+                <thead>
+                    <tr className="thead">
+                        <td>Nome profissão</td>
+                        <td>Descrição curta</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {profissoes.map((item, index) => (
+                        <tr key={index}>
+                            <td>{item.nome_profissao}</td>
+                            <td>{item.descricao_curta}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table> 
+
+
         <form className="form-container" ref={ref} onSubmit={handleSubmit}>
         <div className="form-row">
             <span className='tituloCadastro'>Cadastro de profissão</span>
