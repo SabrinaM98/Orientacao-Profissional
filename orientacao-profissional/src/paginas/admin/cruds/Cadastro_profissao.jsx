@@ -2,10 +2,17 @@ import React, { useRef, useState , useEffect } from 'react';
 import axios  from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import './table.css'
+import { FiEdit } from "react-icons/fi";
+import { FaTimesCircle } from "react-icons/fa";
+import { FaPenToSquare } from "react-icons/fa6";
 
 const Cadastro_profissao = () => {
     const [profissoes, setProfissoes] = useState([]);
+    const [showDiv1, setShowDiv1] = useState(true);
+
+    const toggleDivs = () => {
+        setShowDiv1(!showDiv1);
+    };
 
     const notifySuccess = () => toast.success('Profissão cadastrada com sucesso!', {
         position: "top-right",
@@ -91,99 +98,116 @@ const Cadastro_profissao = () => {
 
   return (
     <div className="content">
-            <span>Profissões cadastradas</span>
-            <table >
-                <thead>
-                    <tr className="thead">
-                        <td>Nome profissão</td>
-                        <td>Descrição curta</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    {profissoes.map((item, index) => (
-                        <tr key={index}>
-                            <td>{item.nome_profissao}</td>
-                            <td>{item.descricao_curta}</td>
+            <div className='linhaBtn'>
+                <span className='tituloCadastro'>Profissões </span>
+                {showDiv1 && (<button className='btnCadastrar' onClick={toggleDivs}>Cadastrar</button> )}
+            </div>
+            
+        {showDiv1 ? (
+            <div className="form-container layoutTable">
+                <table class="table">
+                    <thead>
+                        <tr className="thead">
+                            <td>#</td>
+                            <td>Nome profissão</td>
+                            <td>Descrição curta</td>
+                            <td>Ações</td>
                         </tr>
-                    ))}
-                </tbody>
-            </table> 
+                    </thead>
+                    <tbody >
+                        {profissoes.length > 0 && profissoes.map((item, index) => (
+                            <tr key={index} className='tbody'>
+                                <td>{index+1}</td>
+                                <td>{item.nome_profissao}</td>
+                                <td>{item.descricao_curta}</td>
+                                <td className='icons'>
+                                    <span ><FaPenToSquare className='iconEdit'/></span>
+                                    {/* <span><FiEdit /></span> */}
+                                    <span><FaTimesCircle className='iconDelet'/></span>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table> 
+            </div>
 
+        ) : (
 
         <form className="form-container" ref={ref} onSubmit={handleSubmit}>
-        <div className="form-row">
-            <span className='tituloCadastro'>Cadastro de profissão</span>
-        </div>
-        <div className="form-row">
-            <label>Nome profissão*:</label>
-            <input className='inputDados' type="text" name='nome_profissao' />
-        </div>
-        <div className="form-row">
-            <label>Descrição curta*:</label>
-            <input className='inputDados' type="text" name='descricao_curta' />
-        </div>
-        <div className="form-row">
-            <label>Descrição longa*:</label>
-            <textarea type="text" rows="4" name='descricao_longa'></textarea>
-        </div>
-        <div className="form-row">
-            <label>Descrição do Curso*:</label>
-            <textarea type="text" rows="4" name='descricao_curso'></textarea>
-        </div>
-        <div className="form-row">
-            <label>Duração do curso*:</label>
-            <input className='inputDados' type="text" name='duracao' />
-        </div>
-        <div className="form-row">
-            <label>Descrição do ambiente de trabalho*:</label>
-            <textarea type="text" rows="4" name='ambiente'></textarea>
-        </div>
-        <div className="form-row">
-            <label>Descrição da rotina de trabalho*:</label>
-            <textarea type="text" rows="4" name='rotina'></textarea>
-        </div>
-        <div className="form-row">
-            <label>Descrição das atividades do dia a dia da profissão*:</label>
-            <textarea type="text" rows="4" name='atividades'></textarea>
-        </div>
-        <div className="form-row">
-            <label>Link de vídeo do youtube*:</label>
-            <input className='inputDados' type="text" name='link' />
-        </div>
-        <div className="form-row">
-            <label>Imagem "formato em png" *:</label>
-            <input type="file" name="imagem" className="inputImg" multiple/>
-        </div>
-        
-        <div className="form-buttons">
-            <button type='submit' className='btn'>Salvar</button>
-            <button type="button" className='btn'>Cancelar</button>
-            <ToastContainer
-                    position="top-right"
-                    autoClose={5000}
-                    hideProgressBar={false}
-                    newestOnTop={false}
-                    closeOnClick
-                    rtl={false}
-                    pauseOnFocusLoss
-                    draggable
-                    pauseOnHover
-                    theme="light"/>
-            <ToastContainer />
-            <ToastContainer
-                    position="top-right"
-                    autoClose={5000}
-                    hideProgressBar={false}
-                    newestOnTop={false}
-                    closeOnClick
-                    rtl={false}
-                    pauseOnFocusLoss
-                    draggable
-                    pauseOnHover
-                    theme="light"/>
-            <ToastContainer />
-        </div>
+            <div className="form-row">
+                <span className='tituloCadastro'>Cadastro de profissão</span>
+            </div>
+            <div className="form-row">
+                <label>Nome profissão*:</label>
+                <input className='inputDados' type="text" name='nome_profissao' />
+            </div>
+            <div className="form-row">
+                <label>Descrição curta*:</label>
+                <input className='inputDados' type="text" name='descricao_curta' />
+            </div>
+            <div className="form-row">
+                <label>Descrição longa*:</label>
+                <textarea type="text" rows="4" name='descricao_longa'></textarea>
+            </div>
+            <div className="form-row">
+                <label>Descrição do Curso*:</label>
+                <textarea type="text" rows="4" name='descricao_curso'></textarea>
+            </div>
+            <div className="form-row">
+                <label>Duração do curso*:</label>
+                <input className='inputDados' type="text" name='duracao' />
+            </div>
+            <div className="form-row">
+                <label>Descrição do ambiente de trabalho*:</label>
+                <textarea type="text" rows="4" name='ambiente'></textarea>
+            </div>
+            <div className="form-row">
+                <label>Descrição da rotina de trabalho*:</label>
+                <textarea type="text" rows="4" name='rotina'></textarea>
+            </div>
+            <div className="form-row">
+                <label>Descrição das atividades do dia a dia da profissão*:</label>
+                <textarea type="text" rows="4" name='atividades'></textarea>
+            </div>
+            <div className="form-row">
+                <label>Link de vídeo do youtube*:</label>
+                <input className='inputDados' type="text" name='link' />
+            </div>
+            <div className="form-row">
+                <label>Imagem "formato em png" *:</label>
+                <input type="file" name="imagem" className="inputImg" multiple/>
+            </div>
+            
+            <div className="form-buttons">
+                <button type='submit' className='btnSalvar'>Salvar</button>
+                <button type="button" className='btnCancelar' onClick={toggleDivs}>Cancelar</button>
+                <ToastContainer
+                        position="top-right"
+                        autoClose={5000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        theme="light"/>
+                <ToastContainer />
+                <ToastContainer
+                        position="top-right"
+                        autoClose={5000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        theme="light"/>
+                <ToastContainer />
+            </div>
         </form>
+        )}
     </div>
   )
 }
